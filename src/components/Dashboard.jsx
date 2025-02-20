@@ -1,5 +1,4 @@
 // src/components/Dashboard.jsx
-
 import React, { useState } from 'react';
 import MovieCard from './MovieCard';
 import { useNavigate } from 'react-router-dom';
@@ -7,7 +6,6 @@ import './Dashboard.css'; // Optional: Import CSS for styling
 
 const Dashboard = () => {
   const navigate = useNavigate();
-
   // Sample movie data. In a real application, this might come from an API or global state.
   const [movies, setMovies] = useState([
     {
@@ -31,10 +29,20 @@ const Dashboard = () => {
     // Add more movie objects as needed
   ]);
 
+  const handleAddMovie = () => {
+    navigate('/add-movie');
+  };
+
   return (
     <div className="dashboard">
       <header className="dashboard-header">
         <h1>Movie Collection</h1>
+        <button 
+          className="add-movie-btn"
+          onClick={handleAddMovie}
+        >
+          Add Movie
+        </button>
       </header>
       <div className="movie-list">
         {movies.map((movie) => (
